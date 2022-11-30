@@ -1,4 +1,6 @@
 ﻿using KnowItAllWeb.Models;
+using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace KnowItAllWeb.Models
 {
@@ -6,16 +8,10 @@ namespace KnowItAllWeb.Models
     {
 
 
-        /*Wood wood = new Wood();
-        Sand sand = new Sand();
-        Water water = new Water();
-        Plastic plastic = new Plastic();
-        Iron iron = new Iron();
-        Copper copper = new Copper();
-        Cotton cotton = new Cotton();*/
+      
 
         public int Wood { get; set; }
-
+    
         public int Sand { get; set; }
      
 
@@ -33,9 +29,13 @@ namespace KnowItAllWeb.Models
 
 
         public int Cotton { get; set; }
+
        
 
-    }
+        }
+    
+
+    
 
 }
          

@@ -4,6 +4,9 @@
 <html>
     <head>
         <meta name="viewport" content="width=device=width" />
+              <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+             
         <title>CreateOffer</title>
     </head>
 
@@ -13,6 +16,17 @@
             <h3>offer id: @Model.OfferId</h3>
             <h3>Price:@Model.OfferPrice</h3>
             <h3>Time to build:@Model.OfferTimeToBuild days</h3>
+
+            <h3>Order Requirements are:</h3>
+ <div>Wood:  @Model.WoodQty</div>
+<div>Sand:  @Model.SandQty</div>
+<div>Water :  @Model.WaterQty</div>
+<div>Plastic:  @Model.PlasticQty</div>
+<div>Iron: @Model.IronQty</div>
+<div>Copper:  @Model.CopperQty</div>
+<div>Cotton:  @Model.CottonQty</div>
+<div>Total Item Quantity:  @Model.MaterialQuantity</div>
+
         
         
         
@@ -22,7 +36,13 @@
         </div>
 
 
+       @* <button type="submit" class="btn btn-primary">Accept Offer</button>*@
 
+       <form method="post" action="AcceptOffer">
+    <input type="hidden" name="offerId" value="@Model.OfferId" /> <!-- Include the offer ID as a hidden field -->
+    <button type="submit" class="btn btn-primary">Accept Offer</button>
+</form>
+           <a href="Index" class="btn btn-secondary">Go back to home page</a>
 
 
     </body>

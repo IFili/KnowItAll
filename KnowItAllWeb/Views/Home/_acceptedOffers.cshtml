@@ -1,0 +1,53 @@
+﻿@model KnowItAllWeb.Models.ViewModels.OfferViewModel
+   
+
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<html>       
+<body>
+        
+<div class="order-table">
+    <table class="table table-primary table-striped table-hover">
+        <thead class="table-primary">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Time (days)</th>
+                <th scope="col">Price</th>
+                <th scope="col">Status</th>
+                 <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var offer in Model.OffersList.Where(o => o.OfferStatusInt == 1))
+            {
+                <tr>
+                    <td class="offer-id">
+                        @Html.DisplayFor(modelItem => offer.OfferId)
+                    </td>
+                    <td class="offer-price">
+                        @Html.DisplayFor(modelItem => offer.OfferTimeToBuild)
+                    </td>
+                    <td class="offer-price">
+                        @Html.DisplayFor(modelItem => offer.OfferPrice)
+                    </td>
+                    <td class="offer-status">
+                        @Html.CheckBoxFor(modelItem => offer.OfferStatus, new { @checked = "checked", @disabled = "disabled" })
+                    </td>
+                   <td class="show-more">
+@*                 <button type="button" class="btn btn-dark" >Show More</button>
+*@              @*  <a href="#" data-toggle="modal" data-target="#acceptedOffersModal" class="btn btn-dark">Show More</a>*@
+                </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+            
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+                   
+
+</body>
+          </html>

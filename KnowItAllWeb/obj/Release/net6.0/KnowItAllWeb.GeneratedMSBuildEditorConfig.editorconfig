@@ -1,0 +1,48 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = KnowItAllWeb
+build_property.RootNamespace = KnowItAllWeb
+build_property.ProjectDir = C:\Users\Korisnik\Desktop\Webdev\KnowItAllWeb\KnowItAllWeb\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Korisnik\Desktop\Webdev\KnowItAllWeb\KnowItAllWeb
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Korisnik/Desktop/Webdev/KnowItAllWeb/KnowItAllWeb/Views/Home/CreateOffer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhdGVPZmZlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Korisnik/Desktop/Webdev/KnowItAllWeb/KnowItAllWeb/Views/Home/GetMaterials.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHZXRNYXRlcmlhbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Korisnik/Desktop/Webdev/KnowItAllWeb/KnowItAllWeb/Views/Home/GetOffersView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHZXRPZmZlcnNWaWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Korisnik/Desktop/Webdev/KnowItAllWeb/KnowItAllWeb/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Korisnik/Desktop/Webdev/KnowItAllWeb/KnowItAllWeb/Views/Home/_makeOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfbWFrZU9yZGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Korisnik/Desktop/Webdev/KnowItAllWeb/KnowItAllWeb/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Korisnik/Desktop/Webdev/KnowItAllWeb/KnowItAllWeb/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Korisnik/Desktop/Webdev/KnowItAllWeb/KnowItAllWeb/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

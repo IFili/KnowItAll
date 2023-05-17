@@ -423,11 +423,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Korisnik\\Desktop\\Webdev\\KnowItAllWeb\\KnowItAllWeb\\KnowItAllWeb.csproj",
+      "projectUniqueName": "C:\\Users\\Korisnik\\Desktop\\Webdev\\KnowItAll\\KnowItAllWeb\\KnowItAllWeb.csproj",
       "projectName": "KnowItAllWeb",
-      "projectPath": "C:\\Users\\Korisnik\\Desktop\\Webdev\\KnowItAllWeb\\KnowItAllWeb\\KnowItAllWeb.csproj",
+      "projectPath": "C:\\Users\\Korisnik\\Desktop\\Webdev\\KnowItAll\\KnowItAllWeb\\KnowItAllWeb.csproj",
       "packagesPath": "C:\\Users\\Korisnik\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Korisnik\\Desktop\\Webdev\\KnowItAllWeb\\KnowItAllWeb\\obj\\",
+      "outputPath": "C:\\Users\\Korisnik\\Desktop\\Webdev\\KnowItAll\\KnowItAllWeb\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Korisnik\\AppData\\Roaming\\NuGet\\NuGet.Config",

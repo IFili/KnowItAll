@@ -1,0 +1,76 @@
+﻿@model OfferViewModel
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta name="viewport" content="width=device=width" />
+    <title>HTML Title</title>
+   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+
+    <style>
+                .form-control{
+            width:30rem;
+        }
+    </style>
+</head>
+<body>
+
+    <<div class="modal-content"> 
+            <div class="modal-container"> 
+
+    @*<form action="GetMaterials" method="get" style="    padding-top: 2%; padding-left: 2%;">*@
+      <form asp-action="CreateOffer" id="make-order-form" method="post" class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="woodInput">Wood</label>
+            <input type="number" min="0" value="0" class="form-control" id="woodInput" name="Wood" >
+        </div>
+
+        <div class="form-group">
+            <label for="sandInput">Sand</label>
+            <input type="number" min="0" value="0" class="form-control" id="sandInput" name="Sand">
+        </div>
+
+        <div class="form-group">
+            <label for="waterInput">Water</label>
+            <input type="number" min="0" value="0" class="form-control" id="waterInput" name="Water">
+        </div>
+
+        <div class="form-group">
+            <label for="plasticInput">Plastic</label>
+            <input type="number" min="0" value="0" class="form-control" id="plasticInput" name="Plastic">
+        </div>
+
+        <div class="form-group">
+            <label for="ironInput">Iron</label>
+            <input type="number" min="0" value="0" class="form-control" id="ironInput" name="Iron">
+        </div>
+
+        <div class="form-group">
+            <label for="copperInput">Copper</label>
+            <input type="number" min="0" value="0" class="form-control" id="copperInput" name="Copper">
+        </div>
+
+        <div class="form-group">
+            <label for="cottonInput">Cotton</label>
+            <input type="number" min="0" value="0" class="form-control" id="cottonInput" name="Cotton">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create Order</button>
+        <p>Total Price: $<span id="total-price">0</span></p>
+        <p>Total Time:  <span id="total-time">0</span></p>
+    </form> 
+    </div>
+    </div>
+
+    
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="~/js/dynamicPriceAndTime.js"></script>
+
+   <script src="~/js/formValidation.js"></script>
+   
+</body>
+</html>

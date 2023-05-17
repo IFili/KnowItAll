@@ -1,8 +1,18 @@
-﻿@{
-    ViewData["Title"] = "Index";
-}
+﻿@model KnowItAllWeb.Models.ViewModels.OfferViewModel
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+        <style>
+                .order-table{
+            width:22rem;
+        }
+    </style>
+</head>
+
+
+
+@*<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Navbar</a>
 
 
@@ -14,15 +24,12 @@
       <li class="nav-item">
         <a class="GetMaterials" href="Home/GetMaterials">GetMats</a>
       </li>
-      
-       
-       
-          
+     
+      </ul>
 
-    
    
   </div>
-</nav>
+</nav>*@
 
 <body>
 
@@ -31,6 +38,133 @@ KnowItAll a materials provider
 </h1>
 <br />
 <p>
-    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+   A simple mvc app, that creates,reads,updates data.
 </p>
-</body>
+
+<p>Rules of order: (check manual for more info). Time of order is calculated based on price & quantity of items
+    
+    <ul>At least two different items must be ordered</ul>
+    <ul>3 units of water for every unit of cotton</ul>
+    <ul>2 units of water for every unit of sand</ul>
+
+</p>
+<h4>Make an order</h4>
+<button class="btn btn-success open-insert-modal-btn" id="makeOrderModalBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                    </svg>
+                </button>
+
+<button type="button" class="btn btn-primary btn-lg" id="acceptedOffersModalBtn">View Accepted Offers</button>
+<button type="submit" id="accept-selected" style="margin-left: 25rem;" class="btn btn-primary btn-sm">Accept Selected Offers  </button>
+
+
+              
+            
+
+<div class="order-table">
+<table class="table table-primary table-striped table-hover">
+  <thead class="table-primary">
+      <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Wood</th>
+      <th scope="col">Sand</th>
+      <th scope="col">Water</th>
+      <th scope="col">Plastic</th>
+      <th scope="col">Iron</th>
+      <th scope="col">Copper</th>
+      <th scope="col">Cotton</th>
+      <th scope="col">Material Qty </th>
+      <th scope="col">Time (days) </th>
+      <th scope="col">Price</th>
+      <th scope="col">Status</th>
+      </tr>
+      </thead>
+      <tbody>
+  
+    @foreach (var offer in Model.OffersList)
+    {
+        <tr> <!--Each offer in a new row-->
+            <td class="offer-id">
+                @Html.DisplayFor(modelItem => offer.OfferId)
+            </td>
+            <td class="wood-qty">
+                @Html.DisplayFor(modelItem => offer.WoodQty)
+            </td>
+            <td class="sand-qty"> 
+                @Html.DisplayFor(modelItem => offer.SandQty)
+            </td>
+            <td class="water-qty"> 
+                @Html.DisplayFor(modelItem => offer.WaterQty)
+            </td>
+            <td class="plastic-qty"> 
+                @Html.DisplayFor(modelItem => offer.PlasticQty)
+            </td>
+            <td class="iron-qty"> 
+                @Html.DisplayFor(modelItem => offer.IronQty)
+            </td>
+            <td class="copper-qty"> 
+                @Html.DisplayFor(modelItem => offer.CopperQty)
+            </td>
+            <td class="cotton-qty"> 
+                @Html.DisplayFor(modelItem => offer.CottonQty)
+            </td>
+            <td class="material-qty"> 
+                @Html.DisplayFor(modelItem => offer.MaterialQuantity)
+            </td>
+             <td class="offer-price">
+              @Html.DisplayFor(modelItem => offer.OfferTimeToBuild)
+              </td>
+            <td class="offer-price"> 
+                @Html.DisplayFor(modelItem => offer.OfferPrice)
+            </td>
+           <td class="offer-status"> 
+                @if (offer.OfferStatus)
+                {
+                    @Html.CheckBoxFor(modelItem => offer.OfferStatus, new { @checked = "checked", @disabled = "disabled" })
+                }
+                else
+                {
+                   
+                     @Html.CheckBoxFor(modelItem => offer.OfferStatus, new { value = offer.OfferId })
+                   
+                }
+        </td>
+
+        </tr>
+    }
+
+    @if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-success">
+        @ViewBag.Message
+    </div>
+}
+
+
+      </tbody>
+      </table>
+      </div>
+
+      
+        <div id="makeOrderModal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <partial name="_makeOrder" />
+            </div>
+        </div>
+
+        <div id="acceptedOffersModal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <partial name="_acceptedOffers" />
+            </div>
+        </div>
+
+
+@*       <script src="~/js/acceptOffers.js"></script>
+*@@* <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>*@
+@*    <script src="/js/site.js" asp-append-version="true"></script>
+*@</body>

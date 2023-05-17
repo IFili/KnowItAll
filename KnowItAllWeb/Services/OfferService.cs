@@ -14,58 +14,87 @@ namespace KnowItAllWeb.Services
         public float copperPrice = 5.1F;
         public float cottonPrice = 2.95F;
 
-        private Offer MyOffer { get; set; }
-        private Materials MyMaterials { get; set; }
+        //private Offer MyOffer { get; set; }
+
 
         private OfferRepository MyOfferRepository { get; set; }
 
-
-        public OfferService(Offer myOffer) //zapamti da gi vratis vo zagrada , Materials materialObject, OfferRepository offerRepository
-        {
-            MyOffer = myOffer;
-            //MyMaterials = materialObject;
-            //MyOfferRepository = offerRepository;
-
-        }
+    
+		
 
 
 
-        public float getPrice(int wood, int sand, int water, int plastic, int iron , int copper, int cotton)
+		public float getPrice(int wood, int sand, int water, int plastic, int iron, int copper, int cotton)
         {
 
-        float _price = //what if we multiply by zero, will it crash?
-                (woodPrice * wood)
-                + (sandPrice * sand)
-                + (waterPrice * water)
-                + (plasticPrice * plastic)
-                + (ironPrice * iron)
-                +(copperPrice * copper)
-                +(cottonPrice * cotton);
+            float _price = //what if we multiply by zero, will it crash?
+                   (woodPrice * (float)wood)
+                    + (sandPrice * (float)sand)
+                    + (waterPrice * (float)water)
+                    + (plasticPrice * (float)plastic)
+                    + (ironPrice * (float)iron)
+                    + (copperPrice * (float)copper)
+                    + (cottonPrice * (float)cotton);
 
-           
+
             return _price;
 
         }
 
-        public int getQuantity(int wood, int sand, int water, int plastic, int iron, int copper, int cotton) 
+        public int getQuantity(int wood, int sand, int water, int plastic, int iron, int copper, int cotton)
         {
            
-
-            if(sand /2 ==1) 
-            {
-                water++; //water is added automatically for every 2 units of sand
-                
-            }
-
-           if (cotton /3 ==1)
-            {
-                water++; //water is added automatically for every 3 units of cotton
-            }
-
             int quantity = wood + sand + water + plastic + iron + copper + cotton;
 
+           
             return quantity;
         }
+
+        public bool ValidateMaterials(int Wood, int Sand, int Water, int Plastic, int Iron, int Copper, int Cotton)
+        {
+            int counter = 0;
+            if (Wood > 0)
+            {
+                counter++;
+            }
+            if (Sand > 0)
+            {
+                if (Water < Sand * 2)
+                {
+                    throw new Exception("For every sand there must be 2:1 water");
+                }
+
+                counter++;
+            }
+            if (Water > 0)
+            {
+                counter++;
+            }
+            if (Plastic > 0)
+            {
+                counter++;
+            }
+            if (Iron > 0)
+            {
+                counter++;
+            }
+            if (Copper > 0)
+            {
+                counter++;
+            }
+            if (Cotton > 0)
+            {
+                if (Water < Cotton * 3)
+                {
+                    throw new Exception("For every cotton there must be 3:1 water");
+                }
+                counter++;
+            }
+
+            return counter >= 2;
+        }
+
+
 
         public int getTimebyPrice(float price)
         {
@@ -75,58 +104,58 @@ namespace KnowItAllWeb.Services
             }
             else if (price > 10 && price <= 25)
             {
-                return 7; 
+                return 7;
             }
 
             else if (price > 25 && price <= 100)
             {
-                return 45; 
+                return 45;
             }
 
             else  //time>100
             {
-                return 180; 
+                return 180;
             }
-           
-         
+
+
         }
 
-       
+
 
         public int getTimebyQuantity(int Quantity)
         {
-           
+
 
             if (Quantity <= 3)
             {
-                return 0; 
+                return 0;
             }
 
             else if (Quantity > 3 && Quantity <= 12)
             {
-               return 3;
+                return 3;
             }
             else if (Quantity > 12 && Quantity <= 50)
             {
-                return 21; 
+                return 21;
             }
 
             else  //qty >50
             {
-                return 60; 
+                return 60;
             }
 
-          
+
         }
 
 
-       
+
 
         public int calculateTotalTime(int price, int quantity)
         {
             int timeByPrice = getTimebyPrice(price);
-            int timeByQuantity = getTimebyQuantity(quantity); 
-            
+            int timeByQuantity = getTimebyQuantity(quantity);
+
             int totalTime = timeByPrice + timeByQuantity;
             return totalTime;
         }
@@ -137,43 +166,18 @@ namespace KnowItAllWeb.Services
 
         }
 
-        
-        public Offer createOffer(Offer offer) //orginal :List<Materials>materials
+        public int getOrderId()
         {
-            //okolu pravilata za cotton i sand
-            // mora da ima validacija sto ako ne e uspesna ke frli exception 
-          
-            //prvo go kreiras objektot offer od materials
-           
-            //MyOfferRepository.addOffer(offer,materials);
-         
+            Random rnd = new Random();
+            int _rnd = rnd.Next(100, 1000);
 
-      
-            //ja prais kalkulacijata so materials za da go kreiras offerot
-            
-            //otkako ke ja zavrsis taa kalkulacija, za offerot imas cena,i imas time
-            //otkako ke go kreiras offerot kako objekt, kako so imas instanca vo kontroler od servisot, taka imas instanca vo servisot od repository***
-
-
-
-            //so repository go povikuvas addOffer ** OD REPOSITORY ; so ova go stavas vo BAZA
-            //pri addOffer da go vrati kreiraniot offer TUKA.
-
-
-            //return vrateniot offer 
-
-            //ako nema opcija da bide vraten tuka, offerot ke ima unique id
-            //sigurno ima opcija kako da kreiras unique id za offerot
-            //u toj slucaj ke ima addOffer, pa ke ima getOffer spored id-to (toa e createOffer)
-
-            throw new NotImplementedException();
-
-
+            return _rnd;
         }
+
+       
 
     }
 }
-    
 
 
 
